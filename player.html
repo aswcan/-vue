@@ -1,0 +1,107 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <canvas id="c"></canvas>
+        <div id="app">
+            <!-- 左侧 -->
+            <section class="left">
+                <div class="head-img"></div>
+    
+                <div class="left-List">                
+                    <!-- <ul id="onlineMusic" class="bankuai">
+                        在线音乐
+                        <li id="tuijian"><img src="/img/推荐.png" alt="">推荐</li>
+                        <li id="yinyueguan"><img src="/img/音乐.png" alt="">音乐馆</li>
+                        <li id="shiping"><img src="/img/视频.png" alt="">视频</li>
+                        <li id="diantai"><img src="/img/电台.png" alt="">电台</li>
+                    </ul>
+                    <ul id="myMusic">
+                        我的音乐
+                        <li id="woxihuan"><img src="/img/喜欢.png" alt="">我喜欢</li>
+                        <li id="bendi"><img src="/img/电脑.png" alt="">本地</li>
+                        <li id="bofanglishi"><img src="/img/历史.png" alt="">播放历史</li>
+                        <li id="shitingliebiao"><img src="/img/列表 (2).png" alt="">试听列表</li>
+                    </ul>
+                    <ul id="myList">
+                        创建的歌单
+                        <li>百听不厌周杰伦</li>
+                    </ul>
+                    <ul id="loveList">
+                        收藏的歌单
+                    </ul> -->
+                    <ul v-for="(items,indexs) in basiculList">
+                        
+                        <div>{{items[0]}}</div>
+                        <li v-for="(item,index) in items[1]" @click="selectThis(indexs,index)">
+                            <div class="backgroundColor">
+                                <img :src="basiculList[indexs][1][index].address1" alt="">
+                                {{basiculList[indexs][1][index].title}}
+                            </div>
+                            <div class="content">
+                                <img :src="basiculList[indexs][1][index].address" alt="">{{basiculList[indexs][1][index].title}}
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+    
+    
+            <!-- 右侧 -->
+            <section class="right">
+                <header>
+                    <img class="fanhui" src="/img/返回 (1).png" alt="">
+                    <div class="search">
+                        <input class="search-txt" type="text" placeholder="搜索音乐" v-model="keyword" @keyup.enter="searchMusic">
+                        <a class="search-btn" href="javascript:;">
+                            <img src="/img/Zoom.png" alt="" @click="searchMusic">
+                        </a>
+                    </div>
+                    
+                </header>
+                <div class="middle" >                
+                    <ul v-show="showIndex[8]">
+                        <div class="tagdiv">
+                            <p class="tag tag1">歌名</p>
+                            <p class="tag tag1">歌手</p>
+                            <p class="tag">专辑</p>
+                        </div>
+                        <li v-for="(music,index) in musicList" :key="index">
+                            <div class="home" @click="playMusic(music.id,index)">
+                                <a href="#"></a>
+                                <span class="ok">play</span>
+                            </div>
+                            <!-- <img src="/img/播放.png" alt="" class="play-btn" @click="playMusic(music.id,index)"> -->
+                            <p class="firstp">{{ music.name }}</p>  
+                            <div class="middlep">
+                                <p v-for="artist in musicList[index].artists">{{ artist.name }}</p>
+                            </div>
+                            <p class="lastp">{{music.album.name}}</p>
+                            <span class="li-r-btn">
+                                <img src="/img/喜欢.png" alt="" class="xihuan">
+                                <img src="/img/T1-solid-更多.png" alt="">
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <footer>
+                    <audio :src="musicUrl" controls="controls" autoplay v-on:ended="playMusic(playList[indexNum],indexNum)"></audio>
+                </footer>
+            </section>
+        </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 官网提供的 axios 在线地址 -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/Vue.js"></script>
+    <script src="test.js"></script>
+</body>
+
+</html>
