@@ -1,0 +1,421 @@
+@font-face {
+    font-family: "bw";
+    src: url("https://robindelaporte.fr/codepen/play/BwModelicaSS01-ExtraBold.woff") format("woff");
+  }
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0; 
+    padding: 0;
+    font-weight: 500;
+}
+body{
+    background: url("img/bg.jpg");
+    display: flex;
+    align-items: center; /*定义body的元素垂直居中*/
+    justify-content: center; /*定义body的里的元素水平居中*/
+}
+canvas { 
+    background: #CFF09E; 
+    position: absolute;
+    z-index: -10;
+ }
+
+#app{
+    min-width: 800px;
+    height: 500px;
+    margin: 0 auto;
+    padding: 0;
+    font-size: 0;/*消除inline-block间距方法1*/
+    
+}
+#app .left{
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    height: inherit;
+    width: 73px;
+    background: rgb(232 216 216);
+    overflow: hidden;
+    transition: width 0.2s ease;
+}
+#app .left:hover{
+    overflow: hidden;
+    width: 200px;
+    transition: width 0.2s linear;
+}
+#app .left:hover .head-img{
+    width: 200px;
+    transition: width 0.3s ease;
+}
+#app .right{
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    height: inherit;
+    width: 600px;
+    background: white;
+    /* margin-left: -5px; 消除inline-block间距方法2 */
+    overflow: hidden;
+    
+    position: relative;
+}
+#app .head-img{
+    height: 60px;
+    width: 60px;
+    background: url('/img/topbar.png') no-repeat 20px 0px;
+    image-rendering:optimizeQuality;
+    position: relative;
+    transition: width 0.1s linear;
+}
+#app .left .left-List{
+    width: 175px;
+    height: 450px;
+    margin: 0 auto;
+    padding: 0 15px;
+    overflow: hidden;
+    transition: margin 0.2s linear;
+}
+#app .left .left-List:hover{
+    overflow: auto;
+    transform: .5s;
+}
+#app .left .left-List::-webkit-scrollbar{
+    width: 7px;
+    height: 7px;
+    background-color: rgb(232 216 216);
+    
+  }
+
+  /*定义滚动条轨道 内阴影+圆角*/
+  #app .left .left-List::-webkit-scrollbar-track {
+    /* box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
+    /* border-radius: 10px; */
+    background-color: rgb(232 216 216);
+  }
+
+  /*定义滑块 内阴影+圆角*/
+#app .left .left-List::-webkit-scrollbar-thumb{
+    /* border-radius: 10px; */
+    /* box-shadow: inset 0 0 6px rgba(0, 0, 0, .1);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .1); */
+    background-color: #ff0000;
+  }
+.left-List ul{
+    width: 150px;
+}
+ul{
+    list-style: none;
+    padding: 0;
+    font-size: 10px;
+    margin-top: 20px;
+    color:rgb(170, 165, 165);
+}
+ul:hover{
+    cursor:unset;
+}
+.left-List ul img{
+    width: 20px;
+    height: 20px;
+    margin-right: 30px;
+}
+ul li{
+    font-size: 12px;
+    line-height: 14px;
+    display: flex;
+    align-items: center; /*定义body的元素垂直居中*/
+    margin: 5px 0 8px;
+    color: #000;
+    position: relative;
+}
+.backgroundColor{
+    box-sizing: border-box;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: 170px;
+    height: 30px;
+    background: #f83a3a ;
+    z-index: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    padding: 0 10px;
+    color: white;
+    line-height: 30px;
+
+}
+.content{
+    width: 170px;
+    height: 30px;
+    z-index: 1 ;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    border-radius: 7px;
+}
+.left-List li{
+    width: 170px;
+    border-radius: 8px;
+    height: 30px;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+.left-List li:hover{
+    cursor: pointer;
+}
+.left-List li .content{
+    background: rgb(232 216 216);
+    opacity: 1;
+    transition: opacity 0.2s linear;
+}
+.left-List li .content:hover{
+    opacity: 0;
+    transition: opacity 0.4s;
+    box-shadow:  3px 3px 6px #c8baba,
+    -3px -3px 6px #fff6f6;
+}
+.left-List li:hover .backgroundColor{
+    box-shadow:  3px 3px 6px #8a6060,
+    -3px -3px 6px #fa8f74;
+}
+.right header{
+    display: flex;
+    align-items: center; /*定义body的元素垂直居中*/
+    padding: 10px;
+    font-size: 14px;
+    background: #e84118;
+    height: 30px;
+}
+.right .fanhui{
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
+.right .search{
+    height: 30px;
+    background: #2f3640;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 30px;
+    margin-left: 40px;
+    box-shadow:  3px 3px 6px #771919,
+    -3px -3px 6px #f76363;
+}
+.right .search:hover>.search-txt{
+    width: 160px;
+    padding: 0 10px;
+}
+.right .search:hover>.search-btn{
+    background: white;
+}
+.right .search-btn{
+    width: 30px;
+    height: 30px;
+    border: none;
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #2f3640;
+    border-radius: 30px;
+    z-index: 1;
+    transition: 0.4s;
+}
+.right .search-btn>img{
+    width: 20px;
+    height: 20px;
+}
+.right .search-txt{
+    border: none;
+    outline: none;  
+    background: none;  
+    line-height: 30px;
+    padding: 0;
+    margin: 0;
+    color: rgb(232 216 216);
+    width: 0;
+    transition: 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.right .searchButton{
+    width: 20px;
+    height: 20px;
+}
+.right .searchButton:hover{
+    cursor: pointer;
+}
+.right footer{
+    position: absolute;
+    bottom: 0;
+    border-radius: 0;
+    height: 54px;
+    background: rgb(240,240,240)
+}
+.right footer audio{
+    border-radius: 0;
+    width: 600px;    
+}
+.right .middle{
+    font-size: 12px;
+    padding: 0 10px;
+    float: left;
+    width: 580px;
+    height: 402px;
+    overflow-y: scroll;
+}
+.right .middle::-webkit-scrollbar{
+    width: 7px;
+    height: 7px;
+    background-color: #F5F5F5;
+  }
+
+  /*定义滚动条轨道 内阴影+圆角*/
+.right .middle::-webkit-scrollbar-track {
+    /* box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
+    /* border-radius: 10px; */
+    background-color: #f5f5f5;
+  }
+
+  /*定义滑块 内阴影+圆角*/
+.right .middle::-webkit-scrollbar-thumb{
+    /* border-radius: 10px; */
+    /* box-shadow: inset 0 0 6px rgba(0, 0, 0, .1);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .1); */
+    background-color: #ff0000;
+  }
+
+.right ul li{ 
+    height: 30px;
+    line-height: 30px;
+    padding: 0 15px;  
+    margin: 0; 
+    position: relative;
+}
+
+.right ul li:last-child{
+    padding-bottom: 0;
+}
+.right ul li:nth-child(odd){
+    background: rgb(240,240,240);
+}
+.right .middle p{
+    display: inline;
+    overflow: hidden;
+    user-select: unset;
+    cursor: unset;
+}
+.right ul li .firstp{
+    position: relative;
+    width: 120px;
+    height: 30px;
+    overflow: hidden;
+    margin: 0 15px 0 10px;
+    
+}
+.right ul li .middlep{
+    width: 120px;
+    height: 30px;
+    margin-right: 15px;
+    overflow: hidden;
+}
+.right ul li .lastp{
+    width: 200px;
+    height: 30px;
+}
+.right .middle .tagdiv{
+    margin-top: 5px;
+    margin-left: 45px;
+}
+.right .middle .tag1{
+    display: inline-block;
+    width: 120px;
+    height: 15px;
+    margin:0 11px 0 0;
+}
+.right .middle ul{
+    margin-top: 5px;
+}
+.right .middle img{
+    width: 20px;
+    height: 20px;
+    opacity: 0.2;
+}
+.right .middle img:hover{
+    cursor: pointer;
+    opacity: 1;
+}
+.home {
+    position: relative;
+    height: 24px;
+    width: 48px;
+    overflow: hidden;
+    top: 0%;
+    left: 0%;
+    background-color: #e9f5ff;
+    border-radius: 10rem;
+  }
+  
+  .home span {
+    position: relative;
+    z-index: 0;
+    font-family: "bw";
+    text-decoration: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    font-size: 12px;
+    color: #fff;
+    pointer-events: none;
+  }
+  .home a {
+    font-family: "bw";
+    text-decoration: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    font-size: 3rem;
+    color: #fff;
+    background-color: #b7e3f8;
+    border-radius: 10rem;
+    padding: 1.5rem 4rem 2rem;
+    transform-style: preserve-3d;
+    transition: all 0.6s ease;
+  }
+
+  .home a:before {
+    content: "";
+    background: linear-gradient(56deg, #61dafb 0%, #d6cbf6 46%, #fd0404 100%);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    border-radius: 10rem;
+    transition: opacity 0.4s ease;
+  }
+  
+
+  .home a:hover:before {
+    opacity: 1;
+    transition: opacity 0.6s linear;
+  }
+.right .middle .li-r-btn{
+    position: absolute;
+    right: 15px;
+    display: flex;
+    align-items: center;
+}
+.right .middle .xihuan{
+    margin-right: 5px;
+}
