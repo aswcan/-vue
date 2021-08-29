@@ -37,7 +37,7 @@ canvas {
     width: 73px;
     background: rgb(232 216 216);
     overflow: hidden;
-    transition: width 0.2s ease;
+    transition: width 0.4s linear;
 }
 #app .left:hover{
     overflow: hidden;
@@ -66,7 +66,7 @@ canvas {
     background: url('/img/topbar.png') no-repeat 20px 0px;
     image-rendering:optimizeQuality;
     position: relative;
-    transition: width 0.1s linear;
+    transition: width 0.3s linear;
 }
 #app .left .left-List{
     width: 175px;
@@ -145,7 +145,7 @@ ul li{
     padding: 0 10px;
     color: white;
     line-height: 30px;
-
+    transition: 0.4s linear;
 }
 .content{
     width: 170px;
@@ -174,13 +174,14 @@ ul li{
 }
 .left-List li .content:hover{
     opacity: 0;
-    transition: opacity 0.4s;
-    box-shadow:  3px 3px 6px #c8baba,
-    -3px -3px 6px #fff6f6;
+    transition: opacity 0.4s ease;
+    /* box-shadow:  3px 3px 6px #c8baba,
+    -3px -3px 6px #fff6f6; */
 }
 .left-List li:hover .backgroundColor{
     box-shadow:  3px 3px 6px #8a6060,
     -3px -3px 6px #fa8f74;
+   
 }
 .right header{
     display: flex;
@@ -212,6 +213,7 @@ ul li{
 }
 .right .search:hover>.search-btn{
     background: white;
+    
 }
 .right .search-btn{
     width: 30px;
