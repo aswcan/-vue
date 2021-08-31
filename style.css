@@ -19,7 +19,9 @@ canvas {
     background: #CFF09E; 
     position: absolute;
     z-index: -10;
- }
+    width: 100vw;
+    height: 100vh;
+}
 
 #app{
     min-width: 800px;
@@ -145,7 +147,7 @@ ul li{
     padding: 0 10px;
     color: white;
     line-height: 30px;
-    transition: 0.4s linear;
+    transition: 0.2s linear;
 }
 .content{
     width: 170px;
@@ -174,13 +176,13 @@ ul li{
 }
 .left-List li .content:hover{
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.2s ease;
     /* box-shadow:  3px 3px 6px #c8baba,
     -3px -3px 6px #fff6f6; */
 }
 .left-List li:hover .backgroundColor{
     box-shadow:  3px 3px 6px #8a6060,
-    -3px -3px 6px #fa8f74;
+    -3px -3px 6px #fa7d74;
    
 }
 .right header{
@@ -205,7 +207,7 @@ ul li{
     border-radius: 30px;
     margin-left: 40px;
     box-shadow:  3px 3px 6px #771919,
-    -3px -3px 6px #f76363;
+    -3px -3px 6px #fc4343;
 }
 .right .search:hover>.search-txt{
     width: 160px;
@@ -252,17 +254,6 @@ ul li{
 }
 .right .searchButton:hover{
     cursor: pointer;
-}
-.right footer{
-    position: absolute;
-    bottom: 0;
-    border-radius: 0;
-    height: 54px;
-    background: rgb(240,240,240)
-}
-.right footer audio{
-    border-radius: 0;
-    width: 600px;    
 }
 .right .middle{
     font-size: 12px;
@@ -420,4 +411,121 @@ ul li{
 }
 .right .middle .xihuan{
     margin-right: 5px;
+}
+.right footer ,.player{
+    position: absolute;
+    bottom: 0;
+    border-radius: 0;
+    height: 54px;
+    width: 600px;
+    background: rgb(240,240,240)
+}
+.player{
+    display: flex;
+    align-items: center;
+}
+.right footer audio{
+    visibility: hidden;
+    position: absolute;
+}
+
+.right footer .cover{
+    position: absolute;
+    top: -20px;
+    left: 10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    background-image: radial-gradient(circle,#444 0%, #333 100%);
+    background-size: cover;
+    background-position: center;
+    box-shadow:  6px 6px 9px #888888;
+    
+}
+.right footer .cover::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 10px;
+    width: 10px;
+    background: linear-gradient(45deg, white ,#dabad1);
+    box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+.right footer .lastsong{
+    width: 25px;
+    height: 25px;
+    background:  url("/img/上一首.png") no-repeat center;
+    background-size: 15px;
+    border-radius: 20px;
+    margin-left: 80px;
+    cursor: pointer;
+}
+.right footer .play-btn{
+    width: 25px;
+    height: 25px;
+    margin-left: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.right footer .play-btn img{
+    width: 20px;
+    height: 20px;
+}
+.right footer .nextsong{
+    width: 25px;
+    height: 25px;
+    background:  url("/img/下一首.png") no-repeat center;
+    background-size: 15px;
+    border-radius: 20px;
+    margin-left: 4px;
+    cursor: pointer;
+}
+.right footer .play-btn:hover,
+.right footer .lastsong:hover,
+.right footer .nextsong:hover
+{
+    transform: scale(1.2);
+    background-color: rgb(190, 190, 190);
+    transition: 0.2s linear;
+}
+.right footer .progressbar-bg{
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    height: 6px;
+    width: 350px;
+    margin-left: 10px;
+    border-radius: 2px;
+    padding: 1px;
+}
+.right footer #progressbar{
+    background-color: #333;
+    width: 0;
+    height: 4px;
+    position: absolute;
+    z-index: 1;
+    border-radius: 4px;
+    top: 50%;
+    transform: translate(0,-50%);
+    cursor: pointer;
+}
+.right footer #progressdot{
+    width: 8px;
+    height: 8px;
+    border-radius: 9px;
+    background-color: rgb(245, 49, 42);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    visibility: hidden;
+    z-index: 2;
+    cursor: pointer;
+}
+.right footer .player:hover #progressdot{
+    visibility:visible;
 }
