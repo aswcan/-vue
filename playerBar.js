@@ -9,10 +9,8 @@ playbtn.addEventListener('click', function () {
     console.log(audio)
     if (audio.paused) {
         audio.play();
-        playimg.src = "img/暂停.png";
     } else {
         audio.pause();
-        playimg.src = "img/播放.png";
     }
 
 }, false);
@@ -135,14 +133,15 @@ let commitDiv = document.getElementById('commitdiv');
 let commitbtn = document.getElementById('commit');
 commitbtn.addEventListener('click', function () {
     if (commitbtn.value == "显示") {
+
         commitbtn.style.backgroundImage = "url('img/评论.png')";
         commitDiv.style.display = "none";
 
         commitbtn.value = "隐藏"
-
     } else {
         commitbtn.style.backgroundImage = "url('img/评论 (1).png')";
         commitbtn.value = "显示"
-        commitDiv.style.display = "block";
+        commitDiv.style.display = "flex";
+
     }
 })

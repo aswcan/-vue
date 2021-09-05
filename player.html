@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 官网提供的 axios 在线地址 -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
@@ -121,9 +124,9 @@
             </div>
             <footer>
                 <audio :src="musicUrl" controls="controls" autoplay
-                    v-on:ended="playMusic(playList[indexNum],indexNum)"></audio>
+                    v-on:ended="playMusic(playList[indexNum],indexNum)" @play="play" @pause="pause"></audio>
                 <div class="player">
-                    <div class="cover"><img id="fengmian" :src="musicCover" alt=""></div>
+                    <div class="cover" :class="{playing:isPlaying}"><img id="fengmian" :src="musicCover" class="autoRotate" alt="" ></div>
                     <div class="lastsong" @click="playMusic(musicList[indexNum-2].id,indexNum-1)"></div>
                     <div class="play-btn"><img id="play-img" :src="playimage" alt=""></div>
                     <div class="nextsong" @click="playMusic(musicList[indexNum].id,indexNum)"></div>
@@ -137,9 +140,7 @@
         </section>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <!-- 官网提供的 axios 在线地址 -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
     <script src="/Vue.js" type="module"></script>
     <script src="/playerBar.js" type="module"></script>
     <script src="test.js" type="module"></script>

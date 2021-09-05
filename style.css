@@ -333,18 +333,20 @@ ul:hover{
     left: 0;
     width: 100%;
     background-color: #ffffff;
-    display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 2;
+    z-index: 1;
     transition: 0.2s linear;
     opacity: 1;
-    
+    display: none;
 }
 
 .right .middle #commitdiv ul{
     width: 90%;
     color: #333;
+
+    align-items: center;
+    justify-content: center;
 }
 
 .right .middle #commitdiv ul li{
@@ -372,6 +374,7 @@ ul:hover{
 }
 .right .middle #commitdiv ul #commenttxt #likeCount{
     margin-bottom: 0;
+    margin-top: 5px;
 }
 
 
@@ -605,4 +608,19 @@ ul:hover{
 }
 .right footer #commit:hover{
     opacity: 1;
+}
+@keyframes Rotateimg {
+    from{transform: translate(-50%,-50%) rotate(0deg);}
+    to{transform: translate(-50%,-50%) rotate(360deg);}
+}
+.right footer .autoRotate{
+    animation-name: Rotateimg;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-play-state:paused;
+}
+.playing,
+.playing #fengmian{
+    animation-play-state:running;
 }

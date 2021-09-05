@@ -19,7 +19,8 @@ var app = new Vue({
                 ["在线音乐", [{ address: "/img/推荐.png", title: "推荐", address1: "img/推荐 (1).png" }, { address: "/img/音乐.png", title: "音乐馆", address1: "img/音乐 (1).png" }, { address: "/img/视频.png", title: "视频", address1: "img/视频 (1).png" }, { address: "/img/电台.png", title: "电台", address1: "img/电台 (1).png" }]],
                 ["我的音乐", [{ address: "/img/喜欢.png", title: "我喜欢", address1: "img/喜欢 (1).png" }, { address: "/img/电脑.png", title: "本地", address1: "img/电脑 (1).png" }, { address: "/img/历史.png", title: "播放历史", address1: "img/历史 (1).png" }, { address: "/img/列表 (2).png", title: "试听列表", address1: "img/列表 (3).png" }]],
             ],
-            playimage: "/img/播放.png"
+            playimage: "/img/播放.png",
+            isPlaying: false
         }
     },
 
@@ -72,7 +73,6 @@ var app = new Vue({
             } else {
                 that.playMusic(that.playList[0], 0);
             };
-            that.playimage = "img/暂停.png";
         },
         selectThis: function (index1, index2) {
             let num = index1 * 4 + index2;
@@ -82,6 +82,16 @@ var app = new Vue({
             this.showIndex[num] = true;
             console.log(this.showIndex);
         },
+        play:function(){
+            console.log("play");
+            this.isPlaying = true;
+            this.playimage = "img/暂停.png";
+        },
+        pause:function(){
+            console.log("pause");
+            this.isPlaying = false;
+            this.playimage = "/img/播放.png";
+        }
 
     },
     mounted: function () {   //自动触发写入的函数
