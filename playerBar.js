@@ -129,19 +129,19 @@ function dargProgressdot(audio) {
         flag = false;
     }
 }
-let commitDiv = document.getElementById('commitdiv');
-let commitbtn = document.getElementById('commit');
-commitbtn.addEventListener('click', function () {
-    if (commitbtn.value == "显示") {
+// let commitDiv = document.getElementById('commitdiv');
+// let commitbtn = document.getElementById('commit');
+// commitbtn.addEventListener('click', function () {
+//     if (commitbtn.value == "显示") {
 
-        commitbtn.style.backgroundImage = "url('img/评论.png')";
-        commitDiv.style.display = "none";
+//         commitbtn.style.backgroundImage = "url('img/评论.png')";
+//         commitDiv.style.display = "none";
 
-        commitbtn.value = "隐藏"
-    } else {
-        commitbtn.style.backgroundImage = "url('img/评论 (1).png')";
-        commitbtn.value = "显示"
-        commitDiv.style.display = "flex";
+//         commitbtn.value = "隐藏"
+//     } else {
+//         commitbtn.style.backgroundImage = "url('img/评论 (1).png')";
+//         commitbtn.value = "显示"
+//         commitDiv.style.display = "flex";
 
-    }
-})
+//     }
+// })

@@ -73,7 +73,7 @@
 
             </header>
             <div class="middle">
-                <div id="commitdiv">
+                <div id="commitdiv" v-if="visable">
                     <ul>
                         <h1>热门评论</h1>
                         <li v-for="item in commentList">
@@ -134,7 +134,7 @@
                         <span id="progressdot"></span>
                         <span id="progressbar"></span>
                     </span>
-                    <div id="commit" value="显示"></div>
+                    <div id="commit" value="显示"  @click="toggleShow" :style="commentimg"></div>
                 </div>
             </footer>
         </section>

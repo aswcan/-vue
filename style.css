@@ -322,8 +322,9 @@ ul:hover{
     overflow: hidden;
 }
 .right #songs li .lastp{
-    width: 200px;
+    width: 160px;
     height: 30px;
+    overflow: hidden;
 }
 
 /* 评论 */
@@ -338,7 +339,7 @@ ul:hover{
     z-index: 1;
     transition: 0.2s linear;
     opacity: 1;
-    display: none;
+    display: flex;
 }
 
 .right .middle #commitdiv ul{
